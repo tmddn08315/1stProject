@@ -1,0 +1,215 @@
+.toy {
+  padding-top: 30px;
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  /* overflow-y: scroll; */
+  /* overflow: visible; */
+  background-color: #f7f3d4;
+}
+
+.toy .toy-con {
+  height: 100%;
+  /* margin: 0 auto; */
+  padding: 10vw;
+
+}
+
+.toy .toy-con .head-title h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'KBO Dia Gothic_bold';  
+  font-size: 5.5vmin;
+  letter-spacing: 1.5vmin;
+ 
+  padding-bottom: 2vmin;
+}
+
+.toy .toy-con .toy-filter {
+  
+}
+
+.toy .toy-con .toy-filter-type {
+  padding: 3vmin;
+  box-sizing: border-box;
+}
+
+.toy .toy-con .toy-filter ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toy .toy-con .toy-filter ul li a {
+  padding: 2vmin;
+  box-sizing: border-box;
+  font-size: 2.5vmin;
+  font-family: 'KBO Dia Gothic_light';
+}
+
+.toy .toy-con .toy-filter ul li a:hover {
+  background-color: #FADA7A;
+  color: #ffffff;
+  /* text-decoration:underline 2px #3674B5;
+  text-underline-position: under; */
+
+  border-radius: 30px;
+}
+
+.navToy {
+  /* text-decoration: none;
+  color: black;
+  padding-bottom: 4px;
+  border-bottom: 0.3em solid transparent;
+  transition: all 0.2s; */
+
+}
+.navToy.active {
+  /* text-decoration: underline;
+  text-underline-position: under;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.1em; */
+  background-color: #FADA7A;
+  color: #ffffff;
+  /* text-decoration:underline 2px #3674B5;
+  text-underline-position: under; */
+
+  border-radius: 30px;
+}
+
+.toy .toy-con .toy-filter ul li:hover {
+}
+
+.toy .toy-con .toyList {
+  width: 100%;
+  height: auto;
+}
+
+.toy .toy-con .toyList ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.toy .toy-con .toyList ul li {
+  padding: 2.5vw;
+
+}
+
+.toy .toy-con .toyList ul li .top {
+  width: 100%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: relative;
+}
+.toy .toy-con .toyList ul li .top a>img {
+  display: block;
+  width: 100%;
+  border-radius: 30px;
+  transition: all 0.2s;
+}
+
+.top a>img:hover {
+  transform: scale(1.025);
+}
+
+.toy .toy-con .toyList ul li .bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+  padding: 2vmax;
+  
+}
+
+.toy .toy-con .toyList ul li .bottom a>span.title {
+  font-family: 'KBO Dia Gothic_light';
+  font-size: 2.2vmin;
+  font-weight: bold;
+}
+
+.toy .toy-con .toyList ul li .bottom>span.pricej {
+  font-size: 1.8vmin;
+  font-family: 'KBO Dia Gothic_light';
+  color: #5e5e5e;
+}
+
+.cartIcon {
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  transition: all 0.2s;
+}
+
+.cartIcon>img {
+  width: 60%;
+  height: 60%;
+}
+
+.cartIcon>img:hover {
+  cursor: url(/public/images/shoppingCart.png)2 2, auto;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: scale(1.3);
+}
+
+
+@media screen and (max-width:1200px)  {
+  .toy {
+    height:auto;
+  }
+  .toy .toy-con .toyList>ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .toy {
+    height: auto;
+  }
+  .toy .toy-con .toyList>ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .toy .toy-con .toyList ul li .bottom a>span.title {
+    font-size: 2vmin;
+  }
+  
+  .toy .toy-con .toyList ul li .bottom>span.pricej {
+    font-size: 2.5vmin;
+  }
+}
+@media screen and (max-width: 425px) {
+  .toy {
+    height: auto;
+  }
+  .toy .toy-con .toyList>ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .toy .toy-con .toyList ul li .bottom a>span.title {
+    font-size: 3vmin;
+  }
+  
+  .toy .toy-con .toyList ul li .bottom>span.pricej {
+    font-size: 2.5vmin;
+  }
+}
+
+
+
+@font-face {
+  font-family: 'KBO Dia Gothic_bold';
+  src: url('../../font/KBO Dia Gothic_bold.ttf')
+  format('truetype');
+}
+@font-face {
+  font-family: 'KBO Dia Gothic_light';
+  src: url('../../font/KBO Dia Gothic_light.ttf')
+  format('truetype');
+}
+@font-face {
+  font-family: 'KBO Dia Gothic_medium';
+  src: url('../../font/KBO Dia Gothic_medium.ttf')
+  format('truetype');
+}

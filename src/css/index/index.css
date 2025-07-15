@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&display=swap');
+
+.index {
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+
+}
+
+
+video {
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    /* 비디오 > 부모 너비비율로 설정됨 */
+    object-fit: cover;
+
+    position: absolute;
+    z-index: 0;
+    filter: grayscale(1);
+    /* filter: sepia(0.7); */
+    overflow: hidden;
+    background-repeat: no-repeat;
+
+}
+
+.index .index-con {
+
+    z-index: 1;
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+
+
+    background-color: #2929293b;
+
+}
+
+.index .index-con a {
+    text-decoration-line: none;
+    color: rgb(255, 255, 255);
+    font-family: "Alumni Sans SC", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 8rem;
+
+    position: absolute;
+    left: 50%;
+    top: 40%;
+
+    transform: translate(-50%, 50%);
+
+}
+
+.index .index-con a:link {
+    color: pink
+}
+
+.index .index-con a:hover {
+    color: #828282;
+    /* text-decoration: underline; */
+    font-size: 9rem;
+    transition: font-size 0.3s ease;
+
+}
+
+.index .index-title {
+    position: relative;
+    z-index: 1;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Alumni Sans SC", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 18px;
+
+
+    color: #e3e3e3;
+}

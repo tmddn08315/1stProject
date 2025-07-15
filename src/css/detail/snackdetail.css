@@ -1,0 +1,319 @@
+/* 전체 레이아웃 */
+.house-detail-page {
+  max-width: 1080px;
+  margin: 30px auto 80px;
+  padding: 0 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #fff;
+  box-sizing: border-box;
+
+  /* padding-top: 300px; */
+
+}
+
+.loading {
+  text-align: center;
+  padding: 80px 0;
+  font-size: 1.25rem;
+  color: #666;
+}
+
+/* 헤더 */
+.house-detail-header {
+  border-bottom: 2px solid #eee;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+}
+
+.house-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+/* 본문 */
+.house-detail-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.house-image-gallery {
+  flex: 1 1 480px;
+  max-width: 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: #fafafa;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.house-info {
+  flex: 1 1 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.house-price {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #E25822;
+  font-weight: 800px;
+}
+
+
+
+.house-size {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.house-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* 버튼 영역 */
+/* 버튼 영역 */
+.detail-actions {
+display: flex;
+gap: 16px;
+margin-top: 20px;
+}
+
+.detail-actions button {
+flex: 1;
+padding: 14px 0;
+font-size: 1.1rem;
+font-weight: 600;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.25s ease;
+color: #fff;
+box-shadow: 0 5px 10px rgba(226, 88, 34, 0.5);
+}
+
+/* 장바구니 버튼 */
+.btn-cart {
+background-color: #E25822;
+}
+
+.btn-cart:hover {
+background-color: #c14719;
+box-shadow: 0 6px 14px rgba(193, 71, 25, 0.6);
+}
+
+/* 결제 버튼 */
+.btn-pay {
+background-color: #f08e49;
+}
+
+.btn-pay:hover {
+background-color: #d9791e;
+box-shadow: 0 6px 14px rgba(215, 121, 30, 0.6);
+}
+
+
+/* 탭 컨테이너 */
+.detail-tabs-container {
+  margin-top: 60px;
+
+  border-top: 1px solid #ddd;
+}
+
+/* 탭 메뉴 */
+.tabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 0;
+  border-bottom: 2px solid #eaeaea;
+  justify-content: center; /* 가운데 정렬 */
+  gap: 28px;
+}
+
+.tab-item {
+  padding: 14px 22px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  user-select: none;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.tab-item:hover {
+  color: #E25822;
+}
+
+.tab-item.active {
+  border-color: #E25822;
+  color: #E25822;
+  font-weight: 700;
+}
+
+/* 탭 콘텐츠 */
+.tab-content {
+
+  width: 900px;
+  margin: 24px auto 0 auto;
+  background: #fff;
+  /* padding: 28px 24px; */
+  /* border: 1px solid #eaeaea; */
+  /* box-sizing: border-box; */
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 220px;
+  
+}
+
+.detail-images {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-images img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  cursor: default;
+  transition: none;
+}
+
+.detail-images img:hover {
+  transform: none;
+}
+
+.tab-content .exchange-content .exchange-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.review-con .review-con-bottom {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.review-con {
+padding: 1vw;
+/* border: 1px solid #ccc;
+box-sizing: border-box;
+border-radius: 10px; */
+}
+
+.review-star {
+display: flex;
+align-items: center;
+gap: 8px;
+padding: 0.5vw;
+justify-content: space-between;
+margin-bottom: 20px;
+}
+
+.review-star label select{
+height: 25px;
+margin-right: 450px;
+}
+.review-star input[type=text] {
+width: 200px;
+height: 19px;
+text-align: center;
+}
+
+.review-star .review-search {
+padding: 0 auto;
+
+}
+
+
+
+.review-con h4 {
+margin-bottom: 10px;
+font-size: 20px;
+color: #E25822;
+padding: 0.5vw;
+}
+.review-con .review-con-top  {
+padding: 0.5vw;
+}
+.review-con .review-con-top input[type=text] {
+padding: 0.3vw;
+border: 1px solid #cccccc;
+box-sizing: border-box;
+border-radius: 5px;
+}
+.review-con .review-con-top textarea {
+border: 1px solid #cccccc;
+box-sizing: border-box;
+border-radius: 10px;
+width: 100%;
+height: 200px; 
+padding: 10px;
+font-size: 16px;
+resize: vertical; 
+margin-top: 5px;
+}
+
+.review-con-bottom .reviews {
+padding: 1vw;
+}
+
+.review-con-bottom .reviews h4 {
+margin-bottom: 10px;
+font-size: 20px;
+color: #E25822;
+}
+
+.review-con-bottom .reviews p,
+.review-con-bottom .reviews strong, 
+.review-con-bottom .reviews small {
+padding: 1px;
+}
+
+.review-item {
+margin-bottom: 15px;
+padding: 1vw;
+}
+
+.exchange-images img {
+border-radius: 10px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .house-detail-body {
+    flex-direction: column;
+  }
+
+  .house-image-gallery,
+  .house-info {
+    max-width: 100%;
+  }
+
+  .tab-content {
+    max-width: 100%;
+    padding: 20px 16px;
+  }
+}
+

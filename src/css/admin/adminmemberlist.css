@@ -1,0 +1,156 @@
+.admin-memberList-con {
+
+    width: inherit;
+    height: auto;
+
+    justify-content: center;
+    box-sizing: border-box;
+
+}
+
+.adminTitle {
+
+    background-color: #e3e3e3;
+    font-size: 20px;
+    padding: 2vw;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    border: 1px solid #cccccc;
+
+}
+
+.admin-memberList-con tbody {
+
+
+
+    width: 100%;
+    height: inherit;
+    background-color: #e8e4eb;
+    /* table-layout: fixed; */
+    padding: 20px;
+
+
+}
+
+.admin-memberList-con th {
+
+    background-color: #3674B5;
+    color: #ffffff;
+
+    font-size: 13px;
+    padding: 0.5vw;
+    word-break: break-all;
+}
+
+.admin-memberList-con td {
+
+    text-align: center;
+
+    padding: 1vh;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+.admin-memberList-con .modal-td:hover {
+    color: blue;
+    transform: scale(1.2);
+
+}
+
+.admin-memberList-con table button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* modal  */
+
+.modal-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #142f3c80;
+}
+
+.modal-content {
+    background-color: #ffffffdc;
+    width: 40%;
+    height: 45%;
+    padding: 35px;
+
+    border-radius: 25px;
+    font-size: 1.3rem;
+    color: #0077d8;
+    text-align: center;
+    word-break: break-all;
+
+
+
+}
+
+.modal-content .memInfo {
+    font-size: 0.9rem;
+    padding: 10px;
+
+}
+
+.modal-content .memberListShow {
+    /* font-size: 1.2rem; */
+    color: black;
+    padding: 10px;
+    gap: 10px;
+
+    text-align: start;
+
+}
+
+.modal-content .memberListShow .rf {
+    padding: 5px;
+    font-size: 0.9rem;
+}
+
+.modal-content .memberListShow .rs {
+    padding: 5px;
+    font-size: 1.08rem;
+}
+
+.modal-content .memberListShow .rt {
+    padding: 5px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.modal-content .modal-close-btn {
+
+    background: linear-gradient(to right, #00b7ff, #035fdf);
+    color: #ffffff;
+
+    width: 25%;
+    height: 10%;
+
+}
+
+.modal-content .modal-btn {
+
+    background: linear-gradient(to right, #578FCA, #FADA7A);
+    color: #ffffff;
+
+    width: 40%;
+    height: 10%;
+}

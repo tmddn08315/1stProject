@@ -1,0 +1,82 @@
+.item-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.item-add .item-add-con {
+    width: 100%;
+    min-height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border: 2px solid black;
+
+}
+
+.item-add .item-add-con form {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+
+
+}
+
+.item-add .item-add-con li,
+.item-add .item-add-con button {
+    padding: 3px;
+
+}
+
+
+.item-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin: 2px;
+}
+
+
+.item-input input {
+    width: 140%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin: 5px;
+
+}
+
+.item-input label {
+
+    /* padding: 20px; */
+    width: 100px;
+    /* display: flex; */
+    flex-direction: column;
+
+}
+
+.item-input select {
+    width: 100px;
+    margin: 5px;
+
+    display: flex;
+    text-align: center;
+}

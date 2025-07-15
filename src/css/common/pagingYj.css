@@ -1,0 +1,40 @@
+.paging-yj {
+  display: flex;
+  justify-content: center;
+}
+
+.paging-yj button {
+  background-color: #77a0cd;
+  border: none;
+  border-radius: 40px;
+  padding: 1vmin;
+
+  color: #ffffff;
+
+  font-family: 'KBO Dia Gothic_light';
+  font-size: 2.3vmin;
+}
+
+.paging-yj button.nonActive {
+  background-color: #f5e988;
+}
+.paging-yj button.active {
+  background-color: #fad668;
+}
+
+.paging-yj button:hover{
+  cursor: pointer;
+  background-color: #f5e988;
+}
+
+.paging-yj button.nonActive:hover {
+  background-color: #a8c1dd;
+}
+
+.paging-yj button.active:hover {
+  background-color: #fad668;
+}
+
+button:disabled:hover {
+  background-color: #77a0cd;
+}

@@ -1,0 +1,258 @@
+@media screen and (max-width: 360px) {
+    .adminIndex {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .menu {
+        font-size: 1rem;
+        padding: 0.75rem;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .adminTitle,
+    .product-list,
+    .pay_title,
+    .adminshopList,
+    .dash_title {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.75rem;
+    }
+
+    th,
+    td {
+        padding: 0.25rem;
+    }
+
+    .item-add-con,
+    .modal-content {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+
+    input,
+    select,
+    button {
+        width: 100%;
+        margin: 0.25rem 0;
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .bottom,
+    .bottom-con {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-list-con,
+    .product-list-con,
+    .admin-memberList-con,
+    .adminshopList-con,
+    .paymentlist,
+    .order-table {
+        font-size: 0.75rem;
+        overflow-x: auto;
+    }
+
+    .modalmap {
+        height: 200px !important;
+    }
+
+    .LineC,
+    .PieChart {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .loop-container {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .adminheader {
+        max-width: 100px;
+
+    }
+
+    .admin_nav-con {
+        width: 100%;
+    }
+
+
+    .adminheader ul li {
+        font-size: 10px !important;
+    }
+
+    .layoutRoot {
+        flex-direction: column;
+    }
+
+    .adminheader {
+        flex-direction: column;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .layout-con {
+        flex-direction: column;
+        box-sizing: border-box;
+
+    }
+
+    .admin_nav {
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 0.75rem;
+
+        /* impotants */
+        padding: 5px;
+        display: flex !important;
+        justify-content: flex-end !important;
+        font-size: 10px !important;
+
+        box-sizing: border-box;
+    }
+
+    .dash_title {
+        /* font-size: 1.25rem;
+        padding: 1rem; */
+        text-align: center;
+        background-color: #e3e3e3;
+        font-size: 20px;
+        padding: 2vw;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .LineC-con {
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .LineC h2 {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .LineC-con canvas,
+    .PieChart-con canvas {
+        width: 90% !important;
+        height: 100% !important;
+        padding: 0.75rem;
+    }
+
+    .PieChart-con {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.5rem;
+        align-items: start;
+    }
+
+    .hero-section {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .admin-nav-con {
+        width: 100%;
+    }
+
+    .layoutRoot {
+        /* flex-direction: column !important; */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .admin-memberList-con td {
+        padding: 0.2vh;
+    }
+}
+
+
+
+/* auth/login */
+@media screen and (max-width: 600px) {
+
+
+    .container.sign-in::before {
+        right: 55%;
+    }
+
+    .text h2 {
+        font-size: 2rem;
+    }
+
+    .form-wrapper {
+        width: 90%;
+    }
+
+    .input-group input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .adminIndex {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-auto-flow: row dense;
+        /* display: block; */
+        gap: 10px;
+        padding: 1rem;
+    }
+
+    .adminIndex .menu {
+        padding: 15px;
+    }
+
+
+    /* 상품목록 모달  */
+    .itemList-modal {
+        width: 90%;
+        height: 65%;
+
+    }
+
+    .adminshopList-con td {
+        padding: 0.5vw;
+        word-break: normal;
+        /* font-size: 10px; */
+    }
+
+
+
+    li label {
+        padding: 10px;
+        margin: 2px;
+    }
+
+    li select {
+        width: 40%;
+        border: 1px solid #C4C4C4;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 5px 5px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}

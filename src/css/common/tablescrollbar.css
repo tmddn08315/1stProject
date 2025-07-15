@@ -1,0 +1,17 @@
+/* 스크롤바의 폭 너비 */
+tbody::-webkit-scrollbar {
+    width: 6px;
+    overflow-x: hidden;
+}
+
+tbody::-webkit-scrollbar-thumb {
+    background: rgba(220, 20, 60);
+    /* 스크롤바 색상 */
+    border-radius: 10px;
+    /* 스크롤바 둥근 테두리 */
+}
+
+tbody::-webkit-scrollbar-track {
+    background: rgba(220, 20, 60, .1);
+    /*스크롤바 뒷 배경 색상*/
+}

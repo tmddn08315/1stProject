@@ -1,0 +1,234 @@
+.detailLayout {
+  padding-top: 50px;
+  width: 100%;
+  min-height: calc(100vh - 100px - 100px);
+
+  background-color: #f7f3d4
+
+  ;
+}
+.detailLayout .detail-con {
+  padding: 13vw;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.detailLayout .detail-con .left {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  
+}
+
+.detailLayout .detail-con .left .imageSlider {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+}
+
+.detailLayout .detail-con .right {
+  flex: 1 1;
+  /* padding-top: 10vw; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detailLayout .detail-con .right .right-con {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4vw;
+  /* padding: 0 3vw; */
+}
+
+.detailLayout .detail-con .right .right-con>h2 {
+  font-size: 25px;
+  font-family: 'KBO Dia Gothic_light';
+  /* font-weight: lighter; */
+}
+/* 578FCA */
+
+.detailLayout .detail-con .right .pricej {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3em;
+  font-family: 'KBO Dia Gothic_light';
+}
+
+.detailLayout .detail-con .right .pricej>span.pricew {
+  font-size: 19px;
+  font-family: 'KBO Dia Gothic_light';
+}
+
+.detailLayout .detail-con .right .pricej .countButton{
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.detailLayout .detail-con .right .pricej .countButton>button {
+  width: 1.5em;
+  height: 1.5em;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border: none;
+  background-color: #578FCA;
+  border-radius: 100%;
+  
+  color: #ffffff;
+  font-size: 1rem; 
+  
+}
+
+.detailLayout .detail-con .right .right-con .total {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  font-family: 'KBO Dia Gothic_light'
+}
+
+.detailLayout .detail-con .right .right-con .total span {
+  padding: 0 1px;
+  box-sizing: border-box;
+
+  font-size: 19px;
+}
+.detailLayout .detail-con .right .right-con .total .total-con {
+  border-bottom: 2px solid #cccccc;
+  padding-bottom: 1.5em;
+}
+.detailLayout .detail-con .right .right-con .total .total-btn>button.addCart {
+  height: 4em;
+  width: 13em;
+  background-color: #FADA7A;
+
+  border-radius: 200px;
+  border: none;
+
+  font-size: 15px;
+  color: #000000;
+  font-family: 'KBO Dia Gothic_light';
+  letter-spacing: 0.1rem;
+
+  transition: all 0.2s;
+}
+
+.detailLayout .detail-con .right .right-con .pricej .countButton>button:hover {
+  background-color: #FADA7A;
+  cursor: pointer;
+}
+
+.detailLayout .detail-con .right .right-con .total .total-btn>button.addCart:hover {
+  background-color: #3674B5;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.detailLayout .detail-con .right .total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detailLayout .detail-con .right .total .total-con {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detailLayout .detail-con .right .total .total-btn {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.detailLayout .detail-con .right .total .total-btn button.payment {
+  border: none;
+  border-radius: 200px;
+  font-family: 'KBO Dia Gothic_light';
+  font-size: 15px;
+
+  height: 4em;
+  width: 7em;
+  
+  background-color: #93c5fa;
+  color: #ffffff;
+  transition: all 0.2s;
+}
+.detailLayout .detail-con .right .total .total-btn button.payment:hover {
+  cursor: pointer;
+  background-color: #578FCA;
+}
+
+
+@media screen and (max-width:1200px)  {
+  .right-con>h2 {
+    font-size: 22px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+.detailLayout .detail-con {
+  display: flex;
+  flex-direction: column;
+}
+.detail-con .right .right-con {
+  padding-top: 10vw;
+  gap: 2em !important;
+}
+.right-con .pricej {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.detailLayout .detail-con img {
+  width: 100% !important;
+}
+
+.right-con h2 {
+  font-size: 18px !important;
+}
+.detailLayout .detail-con .right .pricej{
+  padding: 0 1em;
+}
+.detailLayout .detail-con .right .pricew {
+  font-size: 13px !important;
+}
+
+.detailLayout .detail-con .right .pricej .countButton {
+  gap: 0.3em;
+}
+
+.detailLayout .detail-con .right .pricej .countButton>button {
+  font-size: 12px;
+}
+
+.total span {
+  font-size: 14px !important;
+}
+.total-con button {
+  font-size: 12px !important;
+}
+.total button.addCart {
+  font-size: 12px !important;
+}
+.detailLayout .detail-con .right .total .total-btn button.payment{
+  font-size: 12px !important;
+  
+}
+}

@@ -1,0 +1,148 @@
+.product-list {
+    background-color: #e3e3e3;
+    font-size: 20px;
+    padding: 2vw;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-list select {
+    position: absolute;
+    right: 50px;
+}
+
+
+.product-list-con {
+    background-color: #e5e5e5;
+}
+
+.product-list-con th {
+    background-color: #d0a525;
+    color: #ffffff;
+
+    font-size: 13px;
+    padding: 0.5vw;
+    word-break: break-all;
+}
+
+.product-list-con td {
+
+    text-align: center;
+    padding: 0.8vw;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+/* modal */
+
+.itemList-modal-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #142f3c80;
+
+}
+
+.itemList-modal {
+    background-color: #ffffffdc;
+    width: 65%;
+    height: 55%;
+    padding: 35px;
+
+
+    border-radius: 25px;
+    font-size: 1.3rem;
+    color: #0077d8;
+    text-align: center;
+    word-break: break-all;
+
+
+}
+
+/* item-list li */
+.itemModal-li {
+    padding: 2px;
+}
+
+.itemList-modal ul {
+    padding: 2px;
+}
+
+/* item-list image zone */
+.itemModal-li-img {
+    border: 1px solid black;
+    /* width: 40%; */
+    height: 27vh;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #142f3c80;
+
+}
+
+.itemModal-li-img img {
+
+    overflow: hidden;
+}
+
+.bottom {
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 10px;
+}
+
+.bottom input {
+    width: 40%;
+
+}
+
+.bottom button {
+    all: unset;
+    cursor: pointer;
+    color: #0077d8;
+    margin: 4px;
+
+    background-color: #ffe8a2;
+    border: 1px solid black;
+
+    padding: 5px;
+}
+
+.search-list-con {
+    background-color: #e5e5e5;
+}
+
+.search-list-con th {
+    background-color: #33abbd;
+    color: #ffffff;
+
+    font-size: 13px;
+    padding: 0.5vw;
+    word-break: break-all;
+}
+
+.search-list-con td {
+
+    text-align: center;
+    padding: 0.8vw;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+.itemlist-modal:hover {
+    color: blue;
+    transform: scale(1.07);
+}

@@ -1,0 +1,28 @@
+.text-draw {
+    position: relative;
+    font-size: 4rem;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    overflow: hidden;
+}
+
+.text-draw::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #333333;
+    white-space: nowrap;
+    overflow: hidden;
+    /* border-right: 2px solid rgba(255, 255, 255, 0.225); */
+    animation: drawText 3s steps(20) forwards;
+}
+
+@keyframes drawText {
+    to {
+        width: 100%;
+    }
+}

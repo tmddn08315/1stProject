@@ -1,0 +1,53 @@
+@import url(css/common/footer.css);
+@import url(css/common/header.css);
+@import url(css/common/reset.css);
+@import url(css/common/tablescrollbar.css);
+/* IndexPage */
+@import url(css/index/index.css);
+@import url(css/shop//shopMainContainer.css);
+/* AuthPage */
+@import url(css/auth/authlogin.css);
+@import url(css/auth/authJoin.css);
+/* AdminPage */
+@import url(css/admin/adminpage.css);
+/* 장난감, 목욕, 장바구니 결제 등 - 유연준 */
+@import url(css/shop/shopToy.css);
+@import url(css/cart/cart.css);
+@import url(css/shop/shopToyBathDetail.css);
+@import url(css/cart/orderPayment.css);
+@import url(css/cart/addToCartModal.css);
+@import url(css/common/pagingYj.css);
+@import url(css/cart/kakaoModal.css);
+@import url(css/shop/imageSlider.css);
+@import url(css/cart/orderList.css);
+
+@import url(css/shop/shopHouse.css);
+@import url(css/shop/shopFashion.css);
+@import url(css/shop/shopFood.css);
+@import url(css/shop/shopSnack.css);
+
+/* Detail */
+@import url(css/detail/housedetail.css);
+@import url(css/detail/fashiondetail.css);
+@import url(css/detail/text-draw.css);
+
+
+@font-face {
+  font-family: 'KBO Dia Gohtic_bold';
+  src: url('./font/KBO Dia Gothic_bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'KBO Dia Gothic_light';
+  src: url('./font/KBO Dia Gothic_light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "KBO Dia Gothic_medium";
+  font-weight: normal;
+  src: url("./font/KBO\ Dia\ Gothic_medium.ttf") format("truetype");
+}
+
+body {
+  font-family: "KBO Dia Gothic_medium";
+}

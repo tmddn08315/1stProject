@@ -1,0 +1,64 @@
+@import url(../admin/adminIndex.css);
+@import url(../admin//adminmemberlist.css);
+@import url(../admin/adminshopList.css);
+@import url(../admin/adminItemList.css);
+@import url(../admin/adminProductAdd.css);
+@import url(../admin/adminDashBoard.css);
+@import url(../admin/adminPayment.css);
+
+@import url(../admin/adminMediaQuery.css);
+
+.layoutRoot {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    /* width: 10%; */
+    overflow: auto;
+}
+
+.adminheader {
+
+    /* width: 20%; */
+    min-height: 100vh;
+
+    flex: 0 0 150px;
+    display: flex;
+    flex-direction: row;
+
+    background-color: #a5a5a5;
+    /* text-wrap-style:; */
+
+
+}
+
+.adminheader img {
+    width: 100%;
+    height: 100%;
+}
+
+.adminheader ul li {
+    padding: 15px;
+    font-size: 14px;
+}
+
+.layout-con {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+}
+
+.admin_nav {
+    background-color: #cccccc;
+    padding: 5px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    font-size: 10px;
+
+}

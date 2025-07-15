@@ -1,0 +1,55 @@
+.imageSlider {
+  width: 100%;
+  /* max-width: 400px; */
+  overflow: hidden;
+  position: relative;
+}
+
+.imageSlider-con {
+  display: flex;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.imageSlider-con ul {
+  display: flex;
+  width: 100%;
+}
+
+.imageSlider-con ul li {
+  flex: 0 0 100%;
+  height: 400;
+  background-size: cover;
+  background-position: center;
+}
+
+.imageSlider-con ul li img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+.bottom-con {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.bottom-con ul {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bottom-con ul li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(211, 211, 211, 0.665);
+  cursor: pointer;
+}
+
+.bottom-con ul li.one {
+  background-color: rgba(128, 128, 128, 0.581);
+}

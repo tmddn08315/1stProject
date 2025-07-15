@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+/* For Hidden ScrollBar */
+body::-webkit-scrollbar {
+    display: none;
+    overflow-y: scroll;
+}
+
+
+
+html,
+body {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+
+    /* background-color: #c4bec9; */
+}
+
+a {
+    text-decoration: none;
+    color: #25003d;
+}
+
+ul,
+li {
+    list-style: none;
+}

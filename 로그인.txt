@@ -1,0 +1,26 @@
+localStroge >> isLoggedIn 1 일때 로그인 
+
+#3674B5
+
+#578FCA
+
+#F5F0CD
+
+#FADA7A
+
+1. 왜 그 object가 undefined인지 이해해야 한다. 
+- 특정 형태를 갖는 네트워크 응답에 의존하고 있나?
+- 사용자 입력을 처리하고 있나?
+- 외부 함수이거나 라이브러리가 호출되고 있나?
+- 아니면 단순히 로직 이슈인가?
+
+
+json-server --watch  ./src/db/testdb.json    --port  3001
+
+반응형 // 끝
+
+PPT  절반쯤함 
+
+프로덕트 목록에서 이미지 추가하기 
+
+https://www.miricanvas.com/v2/ko/design?sheetW=MTkyMA%3D%3D&sheetH=MTA4MA%3D%3D&templateTypeId=cHJlc2VudGF0aW9u&templateIdx=NzcyMzM2&templatePurpose=V0VC
