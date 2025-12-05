@@ -1,467 +1,84 @@
+# 🛒 Pet E-commerce Front-end | Redux Toolkit 기반 상태 관리 구조
 
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { addCart, setPaymentItems } from '../../../slices/cartSlice';
+> **기술 스택:** React, Redux Toolkit, React Router v6
+>
+> **주요 역할:** 복잡한 쇼핑몰 비즈니스 로직의 Redux State 모듈화 및 데이터 흐름 설계
 
-function HouseDetail() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [item, setItem] = useState(null);
-  const [mainImg, setMainImg] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
+<br />
 
-  useEffect(() => {
-    if (!id) return;
+## 1. 🌟 프로젝트 개요 및 핵심 목표
 
-    fetch(`http://localhost:3001/products/${id}`)
-      .then((res) => {
-        if (!res.ok) throw new Error('데이터를 불러오는 데 실패했습니다.');
-        return res.json();
-      })
-      .then((data) => {
-        setItem(data);
-        setMainImg(`${data.img}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        alert('존재하지 않는 상품입니다.');
-        navigate('/');
-      });
-  }, [id, navigate]);
+본 프로젝트는 React 기반의 E-commerce 웹사이트 프론트엔드에서 발생하는 모든 비즈니스 로직을 **Redux Toolkit (RTK)**을 사용하여 중앙 집중적으로 관리하는 데 중점을 두었습니다.
 
-  if (!item) return <div className="loading">로딩 중...</div>;
+**✅ 핵심 구현 목표:**
 
-  // 장바구니 담기 클릭 시 모달 표시
-  const handleAddCart = () => {
-    dispatch(addCart({ ...item, count: 1 }));
-    setModalVisible(true);
-  };
+1.  **Redux Toolkit 도입:** `createSlice`를 활용하여 액션, 리듀서를 통합하고 보일러플레이트 코드를 최소화하여 효율적인 상태 관리를 학습하고 적용했습니다.
+2.  **모듈화 및 관심사 분리:** 사용자 인증, 장바구니, 결제, 페이지네이션 등 기능별로 Slice를 분리하여 **높은 유지보수성**과 **명확한 책임**을 갖는 코드를 작성했습니다.
+3.  **프론트엔드 비즈니스 로직 처리:** 장바구니의 중복 상품 수량 증가, 결제 대상 상품 분리 등 복잡한 프론트엔드 단의 비즈니스 로직을 **Store 레벨**에서 처리했습니다.
 
-  // 모달에서 장바구니 가기
-  const goToCart = () => {
-    setModalVisible(false);
-    navigate('/cart');
-  };
+---
 
-  // 모달 닫기
-  const closeModal = () => {
-    setModalVisible(false);
-  };
+## 2. 🛠️ 상태 관리 모듈 (Redux Slices) 상세 분석
 
-  return (
-    <div className="house-detail-page">
-      <div className="house-detail-header">
-        <h1 className="house-title">{item.title}</h1>
-      </div>
+프로젝트는 총 6개의 핵심 Redux Slice로 구성되어 있으며, 각 모듈은 독립적인 데이터와 로직을 관리합니다.
 
-      <div className="house-detail-body">
-        <div className="house-image-gallery">
-          <img className="main-image" src={`/images/${mainImg}`} alt={item.title} />
-        </div>
+### 2.1. 🔐 사용자 인증 및 세션 관리 (`authSlice`)
 
-        <div className="house-info">
-          <p className="house-price">
-            가격: <strong>{item.price.toLocaleString()}원</strong>
-          </p>
-          <p className="house-size">사이즈: {item.size || '정보 없음'}</p>
+사용자 로그인 상태 및 정보를 관리하며, **클라이언트 측 세션 영속성** 로직을 포함합니다.
 
-          <p className="house-description">
-            {item.description ||
-              '1. 우리 아이 첫 번째 건강, 좋은 사료에서 시작됩니다.'} <br />
-            {item.description ||
-              '2. 사랑하는 반려견을 위한 프리미엄 영양식!'} <br />
-            {item.description ||
-              '3. 하루 한 끼, 평생 건강. 제대로 만든 사료를 만나보세요.'} <br />
-            {item.description ||
-              '4. 기호성 끝판왕! 아이가 먼저 찾는 맛있는 사료'} <br />
-            {item.description ||
-              '5. 사료 하나 바꿨을 뿐인데, 건강이 달라졌어요.'}
-          </p>
-        </div>
-      </div>
+| 상태 (State) | 타입 | 상세 설명 |
+| :--- | :--- | :--- |
+| `isLogin` / `isLoggedIn` | `Boolean` | 현재 Redux Store에서 관리하는 로그인 상태입니다. |
+| `isUser` | `Object` / `null` | 로그인 성공 시 저장되는 사용자 정보 객체입니다. |
 
-      {/* 장바구니 / 결제 버튼 */}
-      <div className="detail-actions">
-        <button onClick={handleAddCart} className="btn-cart">
-          장바구니 담기
-        </button>
+**💡 구현 특징: 로컬 스토리지 기반 세션 유지**
 
-        <button
-          onClick={() => {
-            dispatch(setPaymentItems([{ ...item, count: 1 }]));
-            navigate('/payment');
-          }}
-          className="btn-pay"
-        >
-          바로 결제하기
-        </button>
-      </div>
+* **`loginUserFn`**: 로그인 성공 시 **`localStorage`**에 로그인 상태 및 사용자 정보를 저장하여 **브라우저 재시작 시에도 상태가 유지**되도록 처리했습니다.
+* **`logOutUserFn`**: Store 상태 초기화와 함께 `localStorage`의 인증 정보를 제거하여 세션을 안전하게 종료합니다.
 
-      {/* AddToCartModal 모달 */}
-      {modalVisible && <AddToCartModal onCart={goToCart} onClose={closeModal} />}
+### 2.2. 🛒 장바구니 및 결제 준비 (`cartSlice`)
 
-      {/* 하단 탭 컴포넌트 */}
-      <HouseDetailTabs item={item} />
-    </div>
-  );
-}
+사용자 경험에 직접적으로 연결되는 장바구니의 복잡한 로직을 관리합니다.
 
-// AddToCartModal 컴포넌트
-const AddToCartModal = ({ onCart, onClose }) => {
-  return (
-    <div className="addCartModal">
-      <div className="addCartModal-con">
-        <h4>장바구니에 상품이 담겼습니다.</h4>
-        <div className="modalBtn">
-          <p>장바구니로 이동하시겠습니까?</p>
-          <div className="modalBtn-con">
-            <button onClick={onCart}>장바구니 가기</button>
-            <button onClick={onClose}>계속 쇼핑하기</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+| 상태 (State) | 타입 | 상세 설명 |
+| :--- | :--- | :--- |
+| `items` | `Array<Object>` | **전체 장바구니 목록.** 각 객체는 **`checked`** 속성을 포함하여 부분 결제를 지원합니다. |
+| `paymentItems` | `Array<Object>` | **결제 단계로 넘길 항목**만 분리 저장됩니다. |
 
-// Detail Page Tabs
-function HouseDetailTabs({ item }) {
-  const [activeTab, setActiveTab] = useState('detail');
-  const [reviews, setReviews] = useState([]);
-  const [newReview, setNewReview] = useState({ author: '', content: '', rating: 0, type: 'review' });
-  const [Search, setSearch] = useState('');
+**💡 구현 특징: 장바구니 중복 처리 및 결제 분리**
 
-  // 리덕스에서 로그인 상태, 사용자 정보 가져오기
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  const currentUser = useSelector(state => state.auth.isUser);
+* **중복 상품 처리**: `addCart` 시 상품의 ID와 TITLE을 복합적으로 비교하여 **중복 상품이면 기존 항목의 `count`만 증가**시키는 로직을 구현했습니다.
+* **결제 항목 분리**: `setPaymentItems`를 통해 장바구니 내에서 **선택된(checked) 항목**만 추출하여 결제 데이터로 전송함으로써, 장바구니와 결제 흐름을 분리했습니다.
+* **비동기 확장성**: `createAsyncThunk`를 활용한 `asyncAdminCartsFetch`를 정의하여 비동기 데이터 로딩 구조를 확보했습니다.
 
-  const navigate = useNavigate();
+### 2.3. 📃 UI 및 데이터 목록 관리 (`pagingSlice`, `orderSlice`, `productsSlice`)
 
-  // 로그인 사용자 정보가 바뀌면 newReview.author 업데이트
-  useEffect(() => {
-    if (currentUser) {
-      setNewReview(prev => ({
-        ...prev,
-        author: currentUser.userName || currentUser.userEmail || '',
-      }));
-    } else {
-      setNewReview(prev => ({
-        ...prev,
-        author: '',
-      }));
-    }
-  }, [currentUser]);
+| Slice | 주요 관리 상태 | 핵심 역할 |
+| :--- | :--- | :--- |
+| **`pagingSlice`** | `currentPage`, `itemsPerPage` | 목록형 데이터에 대한 **범용적인 페이지 이동 제어**를 담당합니다. 페이지 변경 시 **`window.scrollTo(0,0)`**을 호출하여 사용자 경험을 개선했습니다. |
+| **`paymentSlice`** | `paymentData`, `totalRevenue` | 결제 기록 저장 및 `addPayment` 시 **`totalRevenue`를 누적**하여 매출 현황 집계 로직을 구현했습니다. |
+| **`orderSlice`, `productsSlice`** | `data`, `isUpdate` | 관리자 페이지에서 사용하는 주문 및 상품 목록의 상태를 관리하며, `isUpdate` 플래그를 통해 **데이터 갱신 시점**을 제어합니다. |
 
-  useEffect(() => {
-    if (!item) return;
+---
 
-    fetch(`http://localhost:3001/reviews?productId=${item.id}`)
-      .then(res => res.json())
-      .then(data => setReviews(data))
-      .catch(err => console.error('후기 로딩 실패:', err));
-  }, [item]);
+## 3. 🗺️ 프론트엔드 아키텍처 및 라우팅 구조
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+`react-router-dom`의 **`Outlet`**을 활용한 중첩 라우팅 구조를 채택하여, 각 페이지 영역의 레이아웃과 컴포넌트를 분리했습니다.
 
-    if (!isLoggedIn) {
-      alert('로그인이 필요합니다.');
-      navigate('/auth/login');
-      return;
-    }
+* **레이아웃 분리**: `ShopLayout`, `AuthLayout`, `AdminLayout`을 정의하여 **사용자 영역과 관리자 영역의 UI 구조를 명확히 구분**했습니다.
+* **코드 스플리팅 적용**: 모든 주요 컴포넌트에 **`React.lazy`**와 **`Suspense`**를 적용하여 **초기 로딩 시점의 성능 최적화**를 시도했습니다.
+* **라우터 모듈화**: `toShopRouter()`, `toAdminRouter()` 등 라우트 정의를 기능별 함수로 분리하여 **메인 라우터 코드의 가독성**을 높였습니다.
 
-    if (newReview.rating === 0 && newReview.type === 'review') {
-      alert('평점을 선택해주세요.');
-      return;
-    }
+---
 
-    fetch(`http://localhost:3001/reviews`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...newReview,
-        productId: item.id,
-        time: new Date().toISOString()
-      }),
-    })
-      .then(res => res.json())
-      .then((savedReview) => {
-        setReviews(prev => [...prev, savedReview]);
-        // 작성 후 초기화 (type 유지)
-        setNewReview(prev => ({ author: currentUser ? (currentUser.userName || currentUser.userEmail) : '', content: '', rating: 0, type: prev.type }));
-      })
-      .catch(err => alert('후기 등록 실패'));
-  };
+## 4. 🚀 성과 및 향후 계획
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-    if (tab === 'review') {
-      setNewReview(prev => ({ ...prev, type: 'review', rating: 0, content: '', author: currentUser ? (currentUser.userName || currentUser.userEmail) : '' }));
-    } else if (tab === 'qna') {
-      setNewReview(prev => ({ ...prev, type: 'qna', rating: 0, content: '', author: currentUser ? (currentUser.userName || currentUser.userEmail) : '' }));
-    }
-  };
+### 🎯 성과 (Achievements)
 
-  return (
-    <div className="detail-tabs-container">
-      <ul className="tabs">
-        <li
-          className={`tab-item ${activeTab === 'detail' ? 'active' : ''}`}
-          onClick={() => setActiveTab('detail')}
-        >
-          상품 상세 정보
-        </li>
-        <li
-          className={`tab-item ${activeTab === 'review' ? 'active' : ''}`}
-          onClick={() => handleTabChange('review')}
-        >
-          상품 후기
-        </li>
-        <li
-          className={`tab-item ${activeTab === 'qna' ? 'active' : ''}`}
-          onClick={() => handleTabChange('qna')}
-        >
-          상품 문의
-        </li>
-        <li
-          className={`tab-item ${activeTab === 'exchange' ? 'active' : ''}`}
-          onClick={() => setActiveTab('exchange')}
-        >
-          교환/반품/배송
-        </li>
-      </ul>
+* **Redux Toolkit 활용 능력 입증**: `createSlice`를 기반으로 복잡한 쇼핑몰의 상태를 체계적이고 효율적으로 관리하는 **프론트엔드 상태 관리 역량**을 확보했습니다.
+* **재사용 가능한 상태 로직 구현**: 페이지네이션 등 범용 로직을 독립적인 Slice로 분리하여 **컴포넌트의 재사용성**을 높이고, 데이터 로직과 UI 로직을 분리하는 개발 원칙을 적용했습니다.
 
-      <div className="tab-content">
-        {/* 상품 상세 정보 탭 */}
-        {activeTab === 'detail' && (
-          <>
-            <p>{item.detailText}</p>
-            <div className="detail-images">
-              <img src="/images/PetDetail1.png" alt="detail1" />
-              <img src="/images/PetDetail2.png" alt="detail2" />
-              <img src="/images/PetDetail3.png" alt="detail3" />
-              <img src="/images/PetDetail4.png" alt="detail4" />
-              <img src="/images/PetDetail5.png" alt="detail5" />
-            </div>
-          </>
-        )}
+### 🚧 향후 계획 (Future Plans)
 
-        {/* 후기 탭 */}
-        {activeTab === 'review' && (
-          <>
-            <div className="review-con">
-            <h4>후기 작성</h4>
-              <div className="review-star">
-                <select
-                  value={newReview.rating}
-                  onChange={(e) => setNewReview({ ...newReview, rating: parseInt(e.target.value) })}
-                  required>
-                  <option value={0}>-평점선택-</option>
-                  <option value={1}>★</option>
-                  <option value={2}>★★</option>
-                  <option value={3}>★★★</option>
-                  <option value={4}>★★★★</option>
-                  <option value={5}>★★★★★</option>
-                </select>
-
-
-                <div className="review-search">
-                  <input
-                    type="text"
-                    placeholder="후기 검색 (작성자/내용)"
-                    value={Search}
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                  <button
-                    type="button"
-                    className="search-submit-button"
-                    onClick={() => alert(`검색어: ${Search}`)}
-                  >
-                    검색
-                  </button>
-                </div>
-              </div>
-
-              {isLoggedIn ? (
-                <>
-                  <form onSubmit={handleSubmit}>
-                    <div className="review-con-top">
-                      <input
-                        type="text"
-                        placeholder="작성자"
-                        value={newReview.author}
-                        onChange={(e) => setNewReview({ ...newReview, author: e.target.value })}
-                        required
-                      />
-                      <textarea
-                        className="review-textarea"
-                        placeholder="내용을 입력하세요"
-                        value={newReview.content}
-                        onChange={(e) => setNewReview({ ...newReview, content: e.target.value })}
-                        required
-                      />
-                      <button type="submit" className="submit-button">
-                        등록
-                      </button>
-                    </div>
-                  </form>
-                </>
-              ) : (
-                <p style={{ color: 'red', marginTop: '10px' }}>
-                  ※ 후기를 작성하려면 로그인이 필요합니다.
-                </p>
-              )}
-
-              <div className="review-con-bottom">
-                <div className="reviews">
-                  <h4>후기 목록</h4>
-                  {reviews.filter(r => r.type === 'review').length === 0 ? (
-                    <p>등록된 후기가 없습니다.</p>
-                  ) : (
-                    <ul>
-                      {reviews
-                        .filter(r => r.type === 'review')
-                        .filter(r =>
-                          r.author.toLowerCase().includes(Search.toLowerCase()) ||
-                          r.content.toLowerCase().includes(Search.toLowerCase())
-                        )
-                        .map((review) => {
-                          const date = review.time ? new Date(review.time) : null;
-                          return (
-                            <li key={review.id} className="review-item">
-                              <strong>{review.author}</strong>
-                              <p>{review.rating ? '★'.repeat(review.rating) : '평점 없음'}</p>
-                              <p>{review.content}</p>
-                              <small>{date && !isNaN(date) ? date.toLocaleString() : '날짜 정보 없음'}</small>
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  )}
-                </div>
-              </div>
-            </div>
-          </>
-        )}
-
-        {/* 문의 탭 */}
-        {activeTab === 'qna' && (
-          <>
-            <div className="review-con">
-            <h4>상품문의 작성</h4>
-              <div className="review-star">
-                <select
-                  value={newReview.rating}
-                  onChange={(e) => setNewReview({ ...newReview, rating: parseInt(e.target.value) })}
-                  required>
-                  <option value={0}>-전체-</option>
-                  <option value={1}>불량상품 문의</option>
-                  <option value={2}>사이즈 문의</option>
-                  <option value={3}>색상 문의</option>
-                  <option value={4}>재고 문의</option>
-                  <option value={5}>기타 문의</option>
-                </select>
-
-                <div className="review-search">
-                  <input
-                    type="text"
-                    placeholder="문의 검색 (작성자/내용)"
-                    value={Search}
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                  <button
-                    type="button"
-                    className="search-submit-button"
-                    onClick={() => alert(`검색어: ${Search}`)}
-                  >
-                    검색
-                  </button>
-                </div>
-              </div>
-
-              {isLoggedIn ? (
-                <>
-                  <form onSubmit={handleSubmit}>
-                    <div className="review-con-top">
-                      <input
-                        type="text"
-                        placeholder="작성자"
-                        value={newReview.author}
-                        onChange={(e) => setNewReview({ ...newReview, author: e.target.value })}
-                        required
-                      />
-                      <textarea
-                        className="review-textarea"
-                        placeholder="내용을 입력하세요"
-                        value={newReview.content}
-                        onChange={(e) => setNewReview({ ...newReview, content: e.target.value })}
-                        required
-                      />
-                      <button type="submit" className="submit-button">
-                        등록
-                      </button>
-                    </div>
-                  </form>
-                </>
-              ) : (
-                <p style={{ color: 'red', marginTop: '10px' }}>
-                  ※ 문의를 작성하려면 로그인이 필요합니다.
-                </p>
-              )}
-
-              <div className="review-con-bottom">
-                <div className="reviews">
-                  <h4>문의 목록</h4>
-                  {reviews.filter(r => r.type === 'qna').length === 0 ? (
-                    <p>등록된 문의가 없습니다.</p>
-                  ) : (
-                    <ul>
-                      {reviews
-                        .filter(r => r.type === 'qna')
-                        .filter(r =>
-                          r.author.toLowerCase().includes(Search.toLowerCase()) ||
-                          r.content.toLowerCase().includes(Search.toLowerCase())
-                        )
-                        .map((qna) => {
-                          const date = qna.time ? new Date(qna.time) : null;
-                          return (
-                            <li key={qna.id} className="review-item">
-                              <strong>{qna.author}</strong>
-                              <p>문의 유형: {(() => {
-                                switch (qna.rating) {
-                                  case 1: return '불량상품 문의';
-                                  case 2: return '사이즈 문의';
-                                  case 3: return '색상 문의';
-                                  case 4: return '재고 문의';
-                                  case 5: return '기타 문의';
-                                  default: return '미분류';
-                                }
-                              })()}</p>
-                              <p>{qna.content}</p>
-                              <small>{date && !isNaN(date) ? date.toLocaleString() : '날짜 정보 없음'}</small>
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  )}
-                </div>
-              </div>
-            </div>
-          </>
-        )}
-
-        {/* 교환/반품/배송 탭 */}
-        {activeTab === 'exchange' && (
-          <div className="exchange-info">
-            <img src="/images/PetDetail6.png" alt="Detail" />
-            {/* 여기에 교환/반품/배송 정보 작성 */}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-export default HouseDetail;
+* **보안 강화**: 현재 `localStorage` 기반의 간단한 인증 체크를, **JWT 토큰을 활용한 역할(Role) 기반의 서버-사이드 연동 검증**으로 전환하여 관리자 페이지 접근 보안을 강화할 예정입니다.
+* **Redux Persist 도입**: `cartSlice`와 같이 영속성이 필요한 상태에 대해 **`redux-persist`**를 도입하여 수동적인 `localStorage` 관리를 자동화하고 데이터 안정성을 높일 예정입니다.
