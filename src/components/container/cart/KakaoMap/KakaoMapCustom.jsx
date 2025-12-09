@@ -44,7 +44,7 @@ const KakaoMapCustom = ({lat, lng}) => {
     if (!document.getElementById('kakao-map-cus')) {
       const script = document.createElement('script')
       script.id = 'kakao-map-cus'
-      script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=c332ab2c70659f81a39b7d3b752e808e&autoload=false`
+      script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=kakao key&autoload=false`
       script.async = true
       script.onload = loadMap
       document.head.appendChild(script)
