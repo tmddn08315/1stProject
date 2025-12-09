@@ -45,7 +45,7 @@ const AdminShopList = () => {
     useEffect(() => {
         const script = document.createElement("script");
         script.src =
-            "//dapi.kakao.com/v2/maps/sdk.js?appkey=454ebd09b90c527f1da4544bf2ea90d7&autoload=false&libraries=services";
+            "//dapi.kakao.com/v2/maps/sdk.js?appkey=kakao key&autoload=false&libraries=services";
         script.async = true;
         script.async = true;
         script.onload = () => {
