@@ -30,7 +30,7 @@ const KakaoMap = ({ lat, lng }) => {
     if (!document.getElementById('kakao-map-sdk')) {
       const script = document.createElement('script');
       script.id = 'kakao-map-sdk';
-      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=ec3131ab336878c64b31afabbac1136a&autoload=false`;
+      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=kakao api`;
       script.async = true;
       script.onload = loadMap;
       document.head.appendChild(script);
