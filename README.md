@@ -3,6 +3,7 @@
 > **기술 스택:** React, Redux Toolkit, React Router v6
 >
 > **주요 역할:** 복잡한 쇼핑몰 비즈니스 로직의 Redux State 모듈화 및 데이터 흐름 설계
+<img width="1043" height="647" alt="image" src="https://github.com/user-attachments/assets/db1156f6-c45f-4b17-a5ef-c20b4b6e4eab" />
 
 <br />
 
