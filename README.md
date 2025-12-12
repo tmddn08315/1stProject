@@ -3,11 +3,10 @@
 > **기술 스택:** React, Redux Toolkit, React Router v6
 >
 > **주요 역할:** 복잡한 쇼핑몰 비즈니스 로직의 Redux State 모듈화 및 데이터 흐름 설계
-<img width="700" height="450" alt="image" src="https://github.com/user-attachments/assets/db1156f6-c45f-4b17-a5ef-c20b4b6e4eab" />
-
 <br />
 
 ## 1. 🌟 프로젝트 개요 및 핵심 목표
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/db1156f6-c45f-4b17-a5ef-c20b4b6e4eab" />
 
 본 프로젝트는 React 기반의 E-commerce 웹사이트 프론트엔드에서 발생하는 모든 비즈니스 로직을 **Redux Toolkit (RTK)**을 사용하여 중앙 집중적으로 관리하는 데 중점을 두었습니다.
 
