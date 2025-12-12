@@ -71,7 +71,12 @@
 
 ---
 
-## 4. 🚀 성과 및 향후 계획
+## 4. 프로젝트 구현 영상
+<img width="1134" height="582" alt="image" src="https://github.com/user-attachments/assets/11c144d8-a967-4079-b0c1-f7c75783c8df" />
+
+---
+
+## 5. 🚀 성과 및 향후 계획
 
 ### 🎯 성과 (Achievements)
 
